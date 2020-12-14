@@ -1,0 +1,13 @@
+#permission de réécriture de liens internet
+Options +FollowSymlinks
+RewriteEngine on
+
+#reecriture de liens
+	#general
+	RewriteRule ^index.html$  index.php [L]
+	
+	#$_GET
+	RewriteRule ^([a-z]+)-([0-9]+).html$  index.php?action=$1&id=$2 [L]
+	RewriteRule ^([a-z]+).html$  index.php?action=$1 [L]
+	
+	

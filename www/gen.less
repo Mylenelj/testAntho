@@ -1,0 +1,98 @@
+/* Pour pouvoir utiliser une hauteur (height) ou une hauteur minimale
+   (min-height) sur un bloc, il faut que son parent direct ait lui-même une
+   hauteur déterminée (donc toute valeur de height sauf "auto": hauteur en
+   pixels, em, autres unités...).
+   Si la hauteur du parent est en pourcentage, elle se réfère alors à la
+   hauteur du «grand-père», et ainsi de suite.
+   Pour pouvoir utiliser un "min-height: 100%" sur div#global, il nous faut:
+   - un parent (body) en "height: 100%";
+   - le parent de body également en "height: 100%". */
+
+//vars
+@bg:		#050404;
+@bg2:		#2e1c2b;
+
+@cta:		#6a245f;
+@atc:		#893168;
+
+@color:		#cccccc;
+
+/* STYLE GENERAL*/   
+	html, body {
+		height: 100%;
+		font-size:16px;
+	}
+
+	body {
+		color: @color;
+		background: @bg;
+		font-family: 'Futura-Medium', 'Futura', 'Trebuchet MS', sans-serif;
+	}
+
+	main {
+		margin-bottom : 30px;
+	}
+
+	footer {
+		text-align: center;
+	}
+	a, a:visited{
+		color:@cta;
+		transition : color 2s ease;
+		
+		&:hover, &:active{
+			color:@atc;
+		}
+	
+	em{
+		font-style:italic;
+	}
+	
+	}
+	h1 {
+		color: white;
+		font-size:2.1em;
+		text-align: center;
+		&>a, a:active, a:visited, a:hover{
+			text-decoration:none;
+		}
+		&>p{
+			text-align:center;
+		}
+	}
+	
+	h3{
+		&>a, a:active, a:visited, a:hover{
+			text-decoration:none;
+		}
+	}
+	
+	article {
+		&>header{
+			&>time{
+				font-style:italic;
+				padding-left:5px;
+			}
+		}
+	}
+
+
+/* STYLES SPECIFIQUES */
+	.erreurs {
+		/* à faire */
+	}
+	.titreBillet {
+		margin-bottom : 0px;
+	}
+
+	#global {
+		min-height: 100%;  /* Voir commentaire sur html et body plus haut */
+		background: @bg2;
+		width: 70%;
+		margin: auto;	/* Permet de centrer la div */
+		text-align: justify;
+		padding: 5px 20px;
+		&>header{
+			margin-bottom : 20px;
+		}
+	}
