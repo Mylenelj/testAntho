@@ -1,46 +1,51 @@
 <?php
+//testAntho
 require_once 'modele/classModele.php';
+echo "ok";
 
-class Blog extends Modele{
+class Blog extends Modele
+{
 	/*PROPRIETES*/
 	public $titre;
 	public $billets;
-	
+
 	/* CONSTRUCTEUR */
-	function __construct(){
+	function __construct()
+	{
 		//hydration de $titre
-		$this->titre='';
-		
+		$this->titre = '';
+
 		//recuperation des billets
-		$this->billets= array();
-		
-		$requete="SELECT *
+		$this->billets = array();
+
+		$requete = "SELECT *
 				FROM Billet
 				ORDER BY parution desc";
-		$this->billets=$this->fetchAllClass($requete, 'Billet');
+		$this->billets = $this->fetchAllClass($requete, 'Billet');
 	}
-	
+
 	/* ACCUEIL */
-	public function affiche($vue){
-		switch($vue){
-			//au cas où $vue==accueil
+	public function affiche($vue)
+	{
+		switch ($vue) {
+				//au cas où $vue==accueil
 			case 'accueil':
-				$lien='vue/accueil.php';
+				$lien = 'vue/accueil.php';
 				break;
-			//au cas où $vue==billet
+				//au cas où $vue==billet
 			case 'billet':
-				$lien='vue/billet.php';
+				$lien = 'vue/billet.php';
 				break;
-			//au cas où $vue==erreur
+				//au cas où $vue==erreur
 			case 'erreur':
-				$lien='vue/erreur.php';
+				$lien = 'vue/erreur.php';
 				break;
-			//au cas où $vue est différent de mes cas
-			default :
-				$lien='vue/accueil.php';
+				//au cas où $vue est différent de mes cas
+			default:
+				$lien = 'vue/accueil.php';
 				break;
 		}
-		
+
 		return $lien;
 	}
 }
