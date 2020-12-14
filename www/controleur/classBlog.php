@@ -1,8 +1,11 @@
 <?php
-//testAntho
 require_once 'modele/classModele.php';
-echo "ok";
 
+/**
+ * Class modele
+ * @author Mylene <myleclerc22@gmail.com>
+ * 
+ */
 class Blog extends Modele
 {
 	/*PROPRIETES*/
